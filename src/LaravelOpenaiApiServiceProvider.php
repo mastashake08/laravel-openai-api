@@ -18,10 +18,18 @@ class LaravelOpenaiApiServiceProvider extends PackageServiceProvider
         $package
             ->name('laravel-openai-api')
             ->hasConfigFile(['openai'])
-            ->hasViews()
             ->hasRoute('api')
-            ->publishesServiceProvider('OpenAI\Laravel\ServiceProvider')
+            ->publishesServiceProvider('Mastashake\LaravelOpenaiApi\LaravelOpenaiApiServiceProvider')
             ->hasMigration('create_laravel-openai-api_table')
-            ->hasCommand(LaravelOpenaiApiCommand::class);
+            ->hasCommand(LaravelOpenaiApiCommand::class)
+            ->hasInstallCommand(function(InstallCommand $command) {
+                $command
+                    ->publishConfigFile()
+                    ->publishMigrations()
+                    ->askToRunMigrations()
+                    ->copyAndRegisterServiceProviderInApp()
+                    ->askToStarRepoOnGitHub('mastashake08/laravel-openai-api');
+                  }
+                );
     }
 }
