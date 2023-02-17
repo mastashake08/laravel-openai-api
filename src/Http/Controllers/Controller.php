@@ -1,4 +1,3 @@
-// 'src/Http/Controllers/Controller.php'
 <?php
 
 namespace Mastashake\LaravelOpenaiApi\Http\Controllers;
