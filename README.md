@@ -5,7 +5,10 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/mastashake08/laravel-openai-api/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/mastashake08/laravel-openai-api/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/mastashake08/laravel-openai-api.svg?style=flat-square)](https://packagist.org/packages/mastashake08/laravel-openai-api)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+## Routes
+```
+/api/generate-result POST 
+```
 
 ## Support us
 
@@ -26,27 +29,40 @@ composer require mastashake08/laravel-openai-api
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-openai-api-migrations"
+php artisan vendor:publish --tag="openai-api-migrations"
 php artisan migrate
 ```
 
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-openai-api-config"
+php artisan vendor:publish --tag="openai-api-config"
 ```
 
 This is the contents of the published config file:
 
-```php
-return [
+```return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | OpenAI API Key and Organization
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify your OpenAI API Key and organization. This will be
+    | used to authenticate with the OpenAI API - you can find your API key
+    | and organization on your OpenAI dashboard, at https://openai.com.
+    */
+
+    'api_key' => env('OPENAI_API_KEY'),
+    'organization' => env('OPENAI_ORGANIZATION'),
+
 ];
 ```
 
 Optionally, you can publish the views using
 
 ```bash
-php artisan vendor:publish --tag="laravel-openai-api-views"
+php artisan vendor:publish --tag="openai-api-views"
 ```
 
 ## Usage
