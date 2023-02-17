@@ -17,7 +17,7 @@ class LaravelOpenaiApiServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-openai-api')
-            ->hasConfigFile()
+            ->hasConfigFile(['openai'])
             ->hasViews()
             ->hasRoute('api')
             ->publishesServiceProvider('OpenAI\Laravel\ServiceProvider')
