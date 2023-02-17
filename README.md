@@ -5,10 +5,6 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/mastashake08/laravel-openai-api/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/mastashake08/laravel-openai-api/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/mastashake08/laravel-openai-api.svg?style=flat-square)](https://packagist.org/packages/mastashake08/laravel-openai-api)
 
-## Routes
-```
-/api/generate-result POST 
-```
 
 ## Support us
 
@@ -67,16 +63,25 @@ php artisan vendor:publish --tag="openai-api-views"
 
 ## Usage
 
+### Via Code
 ```php
 $laravelOpenaiApi = new Mastashake\LaravelOpenaiApi();
-echo $laravelOpenaiApi->echoPhrase('Hello, Mastashake!');
+echo $laravelOpenaiApi->generateResult($data);
 ```
+### Via API
+```
+/api/generate-result POST {openai_data}
+```
+
 
 ## Testing
 
 ```bash
 composer test
 ```
+
+## Consider Sponsoring
+Help me maintain this project, please consider looking at the [FUNDING](./github/FUNDING.yml) file for more info.
 
 ## Changelog
 
@@ -92,7 +97,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [Hacker God](https://github.com/mastashake08)
+- [Jyrone Parker](https://github.com/mastashake08)
 - [All Contributors](../../contributors)
 
 ## License
