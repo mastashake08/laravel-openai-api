@@ -48,12 +48,6 @@ This is the contents of the published config file:
 ];
 ```
 
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="openai-api-views"
-```
-
 ## Usage
 
 ### Via Code
