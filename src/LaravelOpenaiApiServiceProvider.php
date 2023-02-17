@@ -5,7 +5,7 @@ namespace Mastashake\LaravelOpenaiApi;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Mastashake\LaravelOpenaiApi\Commands\LaravelOpenaiApiCommand;
-
+use Spatie\LaravelPackageTools\Commands\InstallCommand;
 class LaravelOpenaiApiServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
