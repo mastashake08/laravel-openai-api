@@ -25,7 +25,6 @@ class LaravelOpenaiApiServiceProvider extends PackageServiceProvider
             ->hasCommand(LaravelOpenaiApiCommand::class)
             ->publishConfigFile()
             ->publishMigrations()
-            ->copyAndRegisterServiceProviderInApp()
-            ->askToStarRepoOnGitHub();
+            ->copyAndRegisterServiceProviderInApp();
     }
 }
