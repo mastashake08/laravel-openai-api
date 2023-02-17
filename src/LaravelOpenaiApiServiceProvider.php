@@ -22,8 +22,6 @@ class LaravelOpenaiApiServiceProvider extends PackageServiceProvider
             ->hasRoute('api')
             ->publishesServiceProvider('OpenAI\Laravel\ServiceProvider')
             ->hasMigration('create_laravel-openai-api_table')
-            ->hasCommand(LaravelOpenaiApiCommand::class)
-            ->shouldPublishConfigFile()
-            ->shouldPublishMigrations();
+            ->hasCommand(LaravelOpenaiApiCommand::class);
     }
 }
