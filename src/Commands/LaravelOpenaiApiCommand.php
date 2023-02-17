@@ -6,9 +6,9 @@ use Illuminate\Console\Command;
 
 class LaravelOpenaiApiCommand extends Command
 {
-    public $signature = 'laravel-openai-api';
+    public $signature = 'laravel-openai-api:generate-result';
 
-    public $description = 'My command';
+    public $description = 'Generate Result';
 
     public function handle(): int
     {
