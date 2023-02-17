@@ -23,12 +23,9 @@ class LaravelOpenaiApiServiceProvider extends PackageServiceProvider
             ->publishesServiceProvider('OpenAI\Laravel\ServiceProvider')
             ->hasMigration('create_laravel-openai-api_table')
             ->hasCommand(LaravelOpenaiApiCommand::class)
-            ->hasInstallCommand(function(InstallCommand $command) {
-                $command
-                    ->publishConfigFile()
-                    ->publishMigrations()
-                    ->copyAndRegisterServiceProviderInApp()
-                    ->askToStarRepoOnGitHub();
-            });;
+            ->publishConfigFile()
+            ->publishMigrations()
+            ->copyAndRegisterServiceProviderInApp()
+            ->askToStarRepoOnGitHub();
     }
 }
