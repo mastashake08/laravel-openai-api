@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Mastashake\LaravelOpenaiApi\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelOpenaiApiCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-openai-api';
 
     public $description = 'My command';
 
