@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['prefix' => '/api'], function(){
   if(config('openai.use_sanctum') == true){
-    Route::middleware(['web','auth:sanctum'])->post(config('openai.api_url'),'Mastashake\LaravelOpenaiApi\Http\Controllers\PromptController@generateResult');
+    Route::middleware(['auth:sanctum'])->post(config('openai.api_url'),'Mastashake\LaravelOpenaiApi\Http\Controllers\PromptController@generateResult');
   } else {
     Route::post(config('openai.api_url'),'Mastashake\LaravelOpenaiApi\Http\Controllers\PromptController@generateResult');
   }
