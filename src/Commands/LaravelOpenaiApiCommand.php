@@ -32,7 +32,7 @@ class LaravelOpenaiApiCommand extends Command
           $n = (int)$this->ask('Number of results?');
         }
 
-        $displayJson = $this->confirm('Display JSON results?')
+        $displayJson = $this->confirm('Display JSON results?');
 
         $data = [
           'suffix' => $suffix,
