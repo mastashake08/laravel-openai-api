@@ -11,7 +11,7 @@ class LaravelOpenaiApi
     $result = OpenAI::completions()->create($data);
     $prompt = new Prompt([
       'prompt_text' => $data['prompt'],
-      'data' => $data['data']
+      'data' => $result
     ]);
     return $prompt;
   }
