@@ -17,6 +17,11 @@ class LaravelOpenaiApiCommand extends Command
         $temperature = 1;
         $displayJson = false;
         $max_tokens = 16;
+        $type = $this->choice(
+            'What are you generating?',
+            ['text', 'image'],
+            0
+        );
         $prompt = $this->ask('Enter the prompt');
         if ($this->confirm('Do you wish to add a suffix to the generated result?')) {
             //
@@ -48,7 +53,7 @@ class LaravelOpenaiApiCommand extends Command
         ];
 
         $ai = new LaravelOpenaiApi();
-        $result = $ai->generateResult($data);
+        $result = $ai->generateResult($type,$data);
 
         if ($displayJson) {
           $this->comment($result);
