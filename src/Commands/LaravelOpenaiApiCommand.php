@@ -14,7 +14,9 @@ class LaravelOpenaiApiCommand extends Command
     {
         $suffix = null;
         $n = 1;
+        $temperature = 1;
         $displayJson = false;
+        $max_tokens = 16;
         $prompt = $this->ask('Enter the prompt');
         if ($this->confirm('Do you wish to add a suffix to the generated result?')) {
             //
@@ -31,7 +33,9 @@ class LaravelOpenaiApiCommand extends Command
         if ($this->confirm('Multiple results?')) {
           $n = (int)$this->ask('Number of results?');
         }
-
+        if ($this->confirm('Change temperature')) {
+          $temperature = (float)$this->ask('What is the temperature(0-2)?');
+        }
         $displayJson = $this->confirm('Display JSON results?');
 
         $data = [
@@ -39,7 +43,8 @@ class LaravelOpenaiApiCommand extends Command
           'prompt' => $prompt,
           'model' => $model,
           'max_tokens' => $max_tokens,
-          'n' => $n
+          'n' => $n,
+          'temperature' => $temperature
         ];
 
         $ai = new LaravelOpenaiApi();
@@ -48,7 +53,7 @@ class LaravelOpenaiApiCommand extends Command
         if ($displayJson) {
           $this->comment($result);
         }
-        
+
         $choices = $result->data['choices'];
         foreach($choices as $choice) {
           $this->comment($choice['text']);
