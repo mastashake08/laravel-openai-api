@@ -24,12 +24,12 @@ class LaravelOpenaiApiCommand extends Command
             0
         );
         if ($this->confirm('Do you wish to set the max tokens used(defaults to 16)?')) {
-          $max_tokens = (int)$this->ask('Max number of tokens to use (defaults to 16)?');
+          $max_tokens = (int)$this->ask('Max number of tokens to use?');
         }
-        
+
         $data = [
           'suffix' => $suffix,
-          'prompt' => $prompt,
+          'prompt_text' => $prompt,
           'model' => $model,
           'max_tokens' => $max_tokens
         ];
