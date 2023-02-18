@@ -13,8 +13,8 @@ class LaravelOpenaiApiCommand extends Command
     public function handle(): int
     {
         $suffix = null;
-        $prompt = $this->ask('Enter the prompt: ');
-        if ($this->confirm('Do you wish to continue?')) {
+        $prompt = $this->ask('Enter the prompt');
+        if ($this->confirm('Do you wish to add a suffix to the generated result?')) {
             //
             $suffix = $this->ask('What is the suffix?');
         }
