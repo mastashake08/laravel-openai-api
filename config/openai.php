@@ -14,6 +14,6 @@ return [
 
     'api_key' => env('OPENAI_API_KEY'),
     'organization' => env('OPENAI_ORGANIZATION'),
-    'api_url' => env('OPENAI_API_URL')
+    'api_url' => env('OPENAI_API_URL') !== null ? env('OPENAI_API_URL') : '/api/generate-result'
 
 ];
