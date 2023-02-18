@@ -37,8 +37,11 @@ class LaravelOpenaiApiCommand extends Command
         $ai = new LaravelOpenaiApi();
         $result = $ai->generateResult($data);
 
-        $this->comment($result);
-        $this->comment('All done');
+        $this->comment($result . '\n');
+        $choices = $result['choices'];
+        foreach($choices as $choice) {
+          $this->comment($choice[0]['text'].'\n');
+        }
 
         return self::SUCCESS;
     }
