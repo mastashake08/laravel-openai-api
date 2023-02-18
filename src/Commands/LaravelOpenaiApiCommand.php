@@ -63,11 +63,18 @@ class LaravelOpenaiApiCommand extends Command
         if ($displayJson) {
           $this->comment($result);
         }
-
-        $choices = $result->data['choices'];
-        foreach($choices as $choice) {
-          $this->comment($choice['text']);
+        if($type == 'text') {
+          $choices = $result->data['choices'];
+          foreach($choices as $choice) {
+            $this->comment($choice['text']);
+          }
+        } else {
+          $images = $result->data;
+          foreach($images as $image) {
+            $this->comment($image['url']]);
+          }
         }
+
 
         return self::SUCCESS;
     }
