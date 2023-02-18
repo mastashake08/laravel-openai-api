@@ -26,14 +26,13 @@ class LaravelOpenaiApiCommand extends Command
         $prompt = $this->ask('Enter the prompt');
         $data['prompt'] = $prompt;
 
-        $model = $this->choice(
-            'What model do you want to use?',
-            ['text-davinci-003', 'text-curie-001', 'text-babbage-001', 'text-ada-001'],
-            0
-        );
-        $data['model'] = $model;
-
         if($type == 'text') {
+          $model = $this->choice(
+              'What model do you want to use?',
+              ['text-davinci-003', 'text-curie-001', 'text-babbage-001', 'text-ada-001'],
+              0
+          );
+          $data['model'] = $model;
           if ($this->confirm('Do you wish to add a suffix to the generated result?')) {
               //
               $suffix = $this->ask('What is the suffix?');
