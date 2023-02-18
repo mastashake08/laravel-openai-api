@@ -1,5 +1,7 @@
 <?php
 
 it('can test', function () {
-    expect(true)->toBeTrue();
+  var_dump(config('openai.api_key'));
+  exit();
+    expect(env('OPENAI_USE_SANCTUM'))->toBeTrue();
 });
