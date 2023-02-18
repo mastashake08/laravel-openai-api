@@ -61,12 +61,32 @@ echo $laravelOpenaiApi->generateResult($type, $data);
 php artisan laravel-openai-api:generate-result
 ```
 ### Via API
-You set the OPENAI_API_URL in the .env file 
+You set the OPENAI_API_URL in the .env file if a value is not set then it defaults to /api/generate-result
 ```
 /api/generate-result POST {openai_data}
 ```
+The data object requires a ```type``` property that is either set to text or image. Depending on which type then provide the JSON referenced in the [OpenAI API Reference](https://platform.openai.com/docs/api-reference/images/create)
 
+#### Text Example
+```
+{
+  "type": "text",
+  "prompt": "Rust is",
+  "n": 1,
+  "model": "text-davinci-003",
+  "max_tokens": 16
+}
+```
 
+#### Image Example
+```
+{
+  "type": "image",
+  "prompt": "A cute baby sea otter",
+  "n": 1,
+  "size": "1024x1024"
+}
+```
 ## Testing
 
 ```bash
