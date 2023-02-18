@@ -29,7 +29,7 @@ class LaravelOpenaiApiCommand extends Command
 
         $data = [
           'suffix' => $suffix,
-          'prompt_text' => $prompt,
+          'prompt' => $prompt,
           'model' => $model,
           'max_tokens' => $max_tokens
         ];
