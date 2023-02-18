@@ -1,20 +1,15 @@
 <?php
 
 namespace Mastashake\LaravelOpenaiApi\Http\Controllers;
-use OpenAI\Laravel\Facades\OpenAI;
-use Mastashake\LaravelOpenaiApi\Models\Prompt;
 use Illuminate\Http\Request;
-
+use Mastashake\LaravelOpenaiApi\LaravelOpenaiApi;
 class PromptController extends Controller
 {
     //
     function generateResult(Request $request) {
 
-      $result = OpenAI::completions()->create($request->all());
-      $prompt = new Prompt([
-        'prompt_text' => $request->prompt,
-        'data' => $result
-      ]);
+      $ai = new LaravelOpenaiApi();
+      $prompt = $ai->generate($request->type, $request->all());
       return response()->json($prompt);
     }
 }
