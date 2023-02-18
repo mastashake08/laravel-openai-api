@@ -1,11 +1,13 @@
 {
     "name": "mastashake08/laravel-openai-api",
     "description": "Add an OpenAI API easily into your projects.",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "keywords": [
         "mastashake08",
         "laravel",
-        "laravel-openai-api"
+        "laravel-openai-api",
+        "chatGPT",
+        "OpenAI"
     ],
     "homepage": "https://github.com/mastashake08/laravel-openai-api",
     "license": "MIT",
