@@ -14,6 +14,7 @@ class LaravelOpenaiApiCommand extends Command
     {
         $suffix = null;
         $n = 1;
+        $displayJson = false;
         $prompt = $this->ask('Enter the prompt');
         if ($this->confirm('Do you wish to add a suffix to the generated result?')) {
             //
@@ -31,6 +32,8 @@ class LaravelOpenaiApiCommand extends Command
           $n = (int)$this->ask('Number of results?');
         }
 
+        $displayJson = $this->confirm('Display JSON results?')
+
         $data = [
           'suffix' => $suffix,
           'prompt' => $prompt,
@@ -42,10 +45,10 @@ class LaravelOpenaiApiCommand extends Command
         $ai = new LaravelOpenaiApi();
         $result = $ai->generateResult($data);
 
-        $this->comment($result . '\n');
+        $displayJson ? $this->comment($result);
         $choices = $result->data['choices'];
         foreach($choices as $choice) {
-          $this->comment($choice['text'].'\n');
+          $this->comment($choice['text']);
         }
 
         return self::SUCCESS;
