@@ -18,15 +18,15 @@ class LaravelOpenaiApi
 
   function generateText($data) {
     $result = OpenAI::completions()->create($data);
-    return $this->savePrompt($result);
+    return $this->savePrompt($result, $data);
   }
 
   function generateImage($data) {
     $result = OpenAI::images()->create($data);
-    return $this->savePrompt($result);
+    return $this->savePrompt($result, $data);
   }
 
-  private function savePrompt($result): Prompt {
+  private function savePrompt($result, $data): Prompt {
     $prompt = new Prompt([
       'prompt_text' => $data['prompt'],
       'data' => $result
