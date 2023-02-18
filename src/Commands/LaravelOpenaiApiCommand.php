@@ -45,7 +45,7 @@ class LaravelOpenaiApiCommand extends Command
         $this->comment($result . '\n');
         $choices = $result->data['choices'];
         foreach($choices as $choice) {
-          $this->comment($choice[0]['text'].'\n');
+          $this->comment($choice['text'].'\n');
         }
 
         return self::SUCCESS;
