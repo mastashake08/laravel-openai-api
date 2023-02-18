@@ -1,4 +1,4 @@
-# Add an OpenAI API easily into your projects.
+# Add an OpenAI API and Artisan commands easily into your projects.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/mastashake08/laravel-openai-api.svg?style=flat-square)](https://packagist.org/packages/mastashake08/laravel-openai-api)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/mastashake08/laravel-openai-api/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/mastashake08/laravel-openai-api/actions?query=workflow%3Arun-tests+branch%3Amain)
@@ -44,6 +44,7 @@ This is the contents of the published config file:
 
     'api_key' => env('OPENAI_API_KEY'),
     'organization' => env('OPENAI_ORGANIZATION'),
+    'api_url' = env('OPENAI_API_URL')
 
 ];
 ```
@@ -53,9 +54,14 @@ This is the contents of the published config file:
 ### Via Code
 ```php
 $laravelOpenaiApi = new Mastashake\LaravelOpenaiApi();
-echo $laravelOpenaiApi->generateResult($data);
+echo $laravelOpenaiApi->generateResult($type, $data);
+```
+### Via Artisan
+```php
+php artisan laravel-openai-api:generate-result
 ```
 ### Via API
+You set the OPENAI_API_URL in the .env file 
 ```
 /api/generate-result POST {openai_data}
 ```

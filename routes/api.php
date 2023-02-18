@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/api/generate-result','Mastashake\LaravelOpenaiApi\Http\Controllers\PromptController@generateResult');
+Route::post(env('OPENAI_API_URL'),'Mastashake\LaravelOpenaiApi\Http\Controllers\PromptController@generateResult');
