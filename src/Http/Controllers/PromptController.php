@@ -9,7 +9,7 @@ class PromptController extends Controller
     function generateResult(Request $request) {
 
       $ai = new LaravelOpenaiApi();
-      $prompt = $ai->generate($request->type, $request->all());
+      $prompt = $ai->generateResult($request->type, $request->except(['type']));
       return response()->json($prompt);
     }
 }
