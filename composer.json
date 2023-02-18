@@ -1,7 +1,7 @@
 {
     "name": "mastashake08/laravel-openai-api",
     "description": "Add an OpenAI API and Artisan command easily into your projects. Generate images, or text. Can be integrated with Laravel Sanctum for token based access.",
-    "version": "1.6.8",
+    "version": "1.6.9",
     "keywords": [
         "mastashake08",
         "laravel",
