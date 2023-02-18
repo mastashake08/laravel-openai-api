@@ -1,7 +1,7 @@
 {
     "name": "mastashake08/laravel-openai-api",
     "description": "Add an OpenAI API easily into your projects.",
-    "version": "1.5.8",
+    "version": "1.5.9",
     "keywords": [
         "mastashake08",
         "laravel",
