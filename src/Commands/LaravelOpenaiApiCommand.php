@@ -71,7 +71,7 @@ class LaravelOpenaiApiCommand extends Command
         } else {
           $images = $result->data;
           foreach($images as $image) {
-            $this->comment($image['url']]);
+            $this->comment($image['url']);
           }
         }
 
