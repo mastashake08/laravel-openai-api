@@ -19,7 +19,7 @@ class LaravelOpenaiApiServiceProvider extends PackageServiceProvider
             ->name('laravel-openai-api')
             ->hasConfigFile(['openai'])
             ->hasRoute('api')
-            ->hasMigration('create_openai_api_table')
+            ->hasMigrations(['create_openai_api_table', 'add_polymorphic_relations_to_prompts'])
             ->hasCommand(LaravelOpenaiApiCommand::class)
             ->hasInstallCommand(function(InstallCommand $command) {
                 $command
