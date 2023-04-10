@@ -36,7 +36,7 @@ class LaravelOpenaiApi
 
   private function savePrompt($result, $data): Prompt {
     $prompt = new Prompt([
-      'prompt_text' => array_key_exists('prompt', $data) ?? $data['prompt'] : $data['messages'],
+      'prompt_text' => array_key_exists('prompt', $data) ? $data['prompt'] : $data['messages'],
       'data' => $result
     ]);
     return $prompt;
