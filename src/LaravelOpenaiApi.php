@@ -7,21 +7,28 @@ use Mastashake\LaravelOpenaiApi\Models\Prompt;
 
 class LaravelOpenaiApi
 {
+  function generateChat(array $data): Prompt {
+    $result = $client->chat()->create($data);
+    return $result;
+  }
+
   function generateResult(string $type, array $data): Prompt {
     switch ($type) {
       case 'text':
       return $this->generateText($data);
       case 'image':
       return $this->generateImage($data);
+      case 'chat':
+      return $this->generateChat($data);
     }
   }
 
-  function generateText($data) {
+  function generateText(array $data): Prompt {
     $result = OpenAI::completions()->create($data);
     return $this->savePrompt($result, $data);
   }
 
-  function generateImage($data) {
+  function generateImage($data): Prompt {
     $result = OpenAI::images()->create($data);
     return $this->savePrompt($result, $data);
   }
@@ -33,4 +40,5 @@ class LaravelOpenaiApi
     ]);
     return $prompt;
   }
+
 }
