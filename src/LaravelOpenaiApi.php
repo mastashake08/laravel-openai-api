@@ -8,7 +8,7 @@ use Mastashake\LaravelOpenaiApi\Models\Prompt;
 class LaravelOpenaiApi
 {
   function generateChat(array $data): Prompt {
-    $result = $client->chat()->create($data);
+    $result = OpenAI::chat()->create($data);
     return $result;
   }
 
