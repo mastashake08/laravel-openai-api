@@ -3,13 +3,14 @@
 namespace Mastashake\LaravelOpenaiApi;
 
 use OpenAI\Laravel\Facades\OpenAI;
+use OpenAI\Responses\Chat\CreateResponse;
 use Mastashake\LaravelOpenaiApi\Models\Prompt;
 
 class LaravelOpenaiApi
 {
   function generateChat(array $data): Prompt {
     $result = OpenAI::chat()->create($data);
-    return $result;
+    return $this->savePrompt($result, $data);
   }
 
   function generateResult(string $type, array $data): Prompt {
